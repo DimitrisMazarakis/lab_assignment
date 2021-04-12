@@ -8,14 +8,14 @@ The tool that have been used is Maven and the code that builds the diagram you c
 
 ## Usage
 
-First you need to clone or download the repository.
-Secondly you have to transfer you txt file with your grades in this folder:
+### First you need to clone or download the repository.
+### Secondly you have to transfer you txt file with your grades in this folder:
 ![](media/path.png)
 
-In order to run the program you will have to write this in the command line
+### In order to run the program you will have to write this in the command line
 ![](media/command_line.png)
 
-###And the result will be this
+### And the result will be this
 
 ![](media/diagram.png)
 
