@@ -4,8 +4,8 @@
   <artifactId>ase2021_practical_assignments</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>labb2</name>
-  <description>first maven attemp</description>
+  <name>Lab Assignments</name>
+  <description>Here will be all my lab assignments for the course softare Engineering in Practice</description>
   <modules>
   	<module>gradeshistogram</module>
   </modules>

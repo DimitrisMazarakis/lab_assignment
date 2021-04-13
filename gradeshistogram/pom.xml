@@ -6,8 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>gradeshistogram</artifactId>
-  <name>Child for grades</name>
-  <description>child for maven module</description>
+  <name>Second lab assignment module</name>
+  <description>Here will be the project for the second lab assignment which creates gradeshistogram</description>
   
    <dependencies>
     <dependency>

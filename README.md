@@ -1,6 +1,14 @@
 # Second lab assignment
 
+## Overview
+
 In this project you can pass a file with grades and the program will create a histogram with the grades you passed.
+
+## Requirements
+
+This project requires:
+
+* Java JDK version 1.7 (or later)
 
 ## Tools and Technologies used for the project
 
