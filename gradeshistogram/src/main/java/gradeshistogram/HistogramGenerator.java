@@ -55,7 +55,7 @@ public class HistogramGenerator {
         boolean urls = false; // do not visualize urls
 
         // Declare and initialize a createXYLineChart JFreeChart
-        JFreeChart chart = ChartFactory.createXYLineChart("Chart title", "������", "���������", dataset,
+        JFreeChart chart = ChartFactory.createXYLineChart("Chart title", "Grade", "Frequency", dataset,
             PlotOrientation.VERTICAL, legend, tooltips, urls);
 
         /*
