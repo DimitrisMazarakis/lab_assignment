@@ -1,0 +1,117 @@
+package math;
+
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+/**
+ * A test class that implements a Parameterized test
+ * for the ArithmeticOperations class, 
+ * for demonstrating Unit Testing.
+ * @author DimitrsMazarakis (dimitrismazarakis77@gmail.com)
+ */
+public class ArithmeticOperationsTest {
+	
+	
+	
+	/* 
+	 * A reference to the MyAdvancedMath class
+	 * whose methods we are testing in this class
+	 */
+	ArithmeticOperations arith ;
+	
+	/*
+	 * This is a constructor which is called 
+	 * when the ArithmeticOperationsTest class is initialized
+	 */
+	public ArithmeticOperationsTest() {
+		this.arith = new ArithmeticOperations();
+	}
+	
+	/*
+	 * A test case that examines the divide method
+	 * with normal input values. 
+	 */
+	@Test
+	public void testDivideNormal() {
+		Assert.assertEquals(2, arith.divide(4, 2));
+	}
+	
+	/*
+	 * A test case that examines the divide method
+	 * with zeros input values. 
+	 */
+	@Test
+	public void testDivideReturnZero() {
+		Assert.assertEquals(0, arith.divide(0, 2));
+	}
+	
+	/*
+	 * A test case for the exceptions caused when
+	 * the result of the addition doesn't fit 
+	 * in an Integer variable.
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testDivideShouldThrowExceptionOverflow() {
+		arith.divide(1, Integer.MAX_VALUE);
+	}
+	
+	/*
+	 * A test case for the exceptions caused when
+	 * the denominator value is zero. Testing
+	 * the exception is performed with a @Rule
+	 */
+	@Rule
+	public ExpectedException thrown = ExpectedException.none(); //initialize it to .none()
+	@Test 
+	public void testDivideShouldThrowExceptionOnZeroDenominator() {
+		// With @Rules you can perform more sophisticated checks
+		thrown.expect(ArithmeticException.class);
+		thrown.expectMessage("Input denominator should be non zero.");
+		arith.divide(5, 0);
+	}
+	
+	/*
+	 * A test case that examines the multiply method
+	 * with normal input values. 
+	 */
+	@Test
+	public void testMultiplyNormal() {
+		Assert.assertEquals(4, arith.multiply(2, 2));
+	}
+	
+	/*
+	 * A test case that examines the divide method
+	 * with zeros input values. 
+	 */
+	@Test
+	public void testMultiplyReturnZero() {
+		Assert.assertEquals(0, arith.multiply(0, 2));
+	}
+	
+	/*
+	 * A test case for the exceptions caused when
+	 * the result of the addition doesn't fit 
+	 * in an Integer variable.
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testMultiplyShouldThrowExceptionOverflow() {
+		arith.multiply(2, Integer.MAX_VALUE);
+	}
+	
+	/*
+	 * A test case for the exceptions caused when
+	 * one or more input values are negative. Testing
+	 * the exception is performed with a @Rule
+	 */
+	@Rule 
+	public ExpectedException throwns = ExpectedException.none(); //initialize it to .none()
+	@Test 
+	public void testMultiplyShouldThrowExceptionOnNegativeInput() {
+		// With @Rules you can perform more sophisticated checks
+		throwns.expect(IllegalArgumentException.class);
+		throwns.expectMessage("Input numbers should be positive.");
+		arith.multiply(-5, 4);
+	}
+}
