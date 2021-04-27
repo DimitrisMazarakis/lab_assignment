@@ -2,13 +2,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>gr.aueb.dmst.dimitrismazarakis</groupId>
-	<artifactId>ase2021_practical_assignment</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Unit_Testing</name>
+
+	<artifactId>Unit_Testing</artifactId>
+
+	<name>Unit Testing</name>
 	<description>A project for practicing Unit Testing</description>
-	<packaging>pom</packaging>
-	
+
+	 <parent>
+    <groupId>gr.aueb.dmst.dimitrismazarakis</groupId>
+    <artifactId>ase2021_practical_assignments</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
 	<dependencies>
 	<dependency>
 	    <groupId>junit</groupId>
@@ -18,4 +22,6 @@
 	</dependency>
     </dependencies>
     
+
+
 </project>
