@@ -1,9 +1,14 @@
 package math;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
+
 
 import org.junit.Assert;
 
@@ -35,6 +40,17 @@ public class MyMathFactorialParameterizedTest {
 	public int result4;
 
 	MyMath mam = new MyMath();
+	
+	/*
+	 * The following method generates the input values 
+	 * for the tests. 
+	 */
+	@Parameters
+	public static Collection<Object[]> data() {
+		Object[][] data = new Object[][]{{0,1},{1,1},{2,2}};
+		
+		return Arrays.asList(data);
+	}
 	
 	/*
 	 * A unit test that is executed for each pair of 
