@@ -1,5 +1,47 @@
 package math;
 
-public class MyMathTest {
+import org.junit.Test;
 
+/**
+ * An class that provides test cases for the 
+ * factorial operations of the MyMath 
+ * class, for demonstrating Unit Testing.
+ * @author DimitrisMazarakis (dimitrismazarakis77@gmail.com)
+ */
+public class MyMathTest {
+	MyMath mym = new MyMath();
+	
+	/*
+	 * A unit test that checks a non valid negative input
+	 */
+	 @Test (expected = IllegalArgumentException.class)
+    public void testFactorialWhenInputIsNegative() {
+    	 mym.factorial(-1);
+    }
+    
+	/*
+	* A unit test that checks a non valid zero input
+	*/
+	@Test (expected = IllegalArgumentException.class)
+	public void testFactorialWhenInputIsZero() {
+		mym.factorial(0);
+	}	
+	
+	/*
+	* A unit test that checks a non valid 12 input
+	*/
+	@Test (expected = IllegalArgumentException.class)
+	public void testFactorialWhenInputIsTwelve() {
+		mym.factorial(12);
+	}
+	
+	/*
+	* A unit test that checks a non valid >12 input
+	*/
+	@Test (expected = IllegalArgumentException.class)
+	public void testFactorialWhenInputIsMoreThanTwelve() {
+		mym.factorial(13);
+	}
 }
+
+
