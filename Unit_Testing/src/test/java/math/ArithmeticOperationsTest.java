@@ -62,14 +62,14 @@ public class ArithmeticOperationsTest {
 	 * the denominator value is zero. Testing
 	 * the exception is performed with a @Rule
 	 */
-	@Rule
-	public ExpectedException thrown = ExpectedException.none(); //initialize it to .none()
-	@Test 
+	
+	@Test (expected = ArithmeticException.class)
 	public void testDivideShouldThrowExceptionOnZeroDenominator() {
-		// With @Rules you can perform more sophisticated checks
-		thrown.expect(ArithmeticException.class);
-		thrown.expectMessage("Input denominator should be non zero.");
-		arith.divide(5, 0);
+		try {
+			arith.divide(5, 0);
+		} catch (ArithmeticException e) {
+		    throw new ArithmeticException("Division by 0");
+		}
 	}
 	
 	/*
