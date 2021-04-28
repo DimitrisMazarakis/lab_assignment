@@ -13,10 +13,8 @@ import org.junit.rules.ExpectedException;
  */
 public class ArithmeticOperationsTest {
 	
-	
-	
 	/* 
-	 * A reference to the MyAdvancedMath class
+	 * A reference to the ArithmeticOperations class
 	 * whose methods we are testing in this class
 	 */
 	ArithmeticOperations arith ;
@@ -109,7 +107,6 @@ public class ArithmeticOperationsTest {
 	public ExpectedException throwns = ExpectedException.none(); //initialize it to .none()
 	@Test 
 	public void testMultiplyShouldThrowExceptionOnNegativeInput() {
-		// With @Rules you can perform more sophisticated checks
 		throwns.expect(IllegalArgumentException.class);
 		throwns.expectMessage("Input numbers should be positive.");
 		arith.multiply(-5, 4);
