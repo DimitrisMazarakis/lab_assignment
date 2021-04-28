@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/DimitrisMazarakis/lab_assignment.svg?token=vA99SPhkUkdzsEZp7i3d&branch=main)](https://travis-ci.com/DimitrisMazarakis/lab_assignment)
+
 # Second lab assignment
 
 ## Overview
