@@ -104,12 +104,12 @@ public class ArithmeticOperationsTest {
 	 * one or more input values are negative. Testing
 	 * the exception is performed with a @Rule
 	 */
-	@Rule 
+	@Rule
 	public ExpectedException throwns = ExpectedException.none(); //initialize it to .none()
 	@Test 
 	public void testMultiplyShouldThrowExceptionOnNegativeInput() {
 		throwns.expect(IllegalArgumentException.class);
 		throwns.expectMessage("Input numbers should be positive.");
-		arith.multiply(-5, 4);
+		arith.multiply(-5, 1);
 	}
 }
