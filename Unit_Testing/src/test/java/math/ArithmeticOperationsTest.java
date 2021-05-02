@@ -31,30 +31,29 @@ public class ArithmeticOperationsTest {
 	 * A test case that examines the divide method
 	 * with normal input values. 
 	 */
-//	@Test
-//	public void testDivideNormal() {
-//		Assert.assertEquals(2, arith.divide(4, 2));
-//	}
+	@Test
+	public void testDivideNormal() {
+		Assert.assertEquals(2, arith.divide(4, 2),2);
+	}
 	
 	/*
 	 * A test case that examines the divide method
 	 * with zeros input values. 
 	 */
-//	@Test
-//	public void testDivideReturnZero() {
-//		Assert.assertEquals(0, arith.divide(0, 2));
-//		Assert.assertEquals(0, arith.di(0, 2));
-//	}
-//	
+	@Test
+	public void testDivideReturnZero() {
+		Assert.assertEquals(0, arith.divide(0, 2),2);
+	}
+	
 	/*
 	 * A test case for the exceptions caused when
 	 * the result of the addition doesn't fit 
 	 * in an Integer variable.
 	 */
-//	@Test (expected = IllegalArgumentException.class)
-//	public void testDivideShouldThrowExceptionOverflow() {
-//		arith.divide(1, Integer.MAX_VALUE);
-//	}
+	@Test 
+	public void testDivideShouldThrowExceptionOverflow() {
+		arith.divide(Integer.MAX_VALUE, 1 );
+	}
 	
 	/*
 	 * A test case for the exceptions caused when
