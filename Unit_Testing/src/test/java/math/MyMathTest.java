@@ -22,7 +22,7 @@ public class MyMathTest {
 	/*
 	* A unit test that checks a non valid zero input
 	*/
-	@Test (expected = IllegalArgumentException.class)
+	@Test 
 	public void testFactorialWhenInputIsZero() {
 		mym.factorial(0);
 	}	
@@ -30,7 +30,7 @@ public class MyMathTest {
 	/*
 	* A unit test that checks a non valid 12 input
 	*/
-	@Test (expected = IllegalArgumentException.class)
+	@Test 
 	public void testFactorialWhenInputIsTwelve() {
 		mym.factorial(12);
 	}
