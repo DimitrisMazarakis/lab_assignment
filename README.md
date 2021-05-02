@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/DimitrisMazarakis/lab_assignment.svg?token=vA99SPhkUkdzsEZp7i3d&branch=development)](https://travis-ci.com/DimitrisMazarakis/lab_assignment)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Second lab assignment
