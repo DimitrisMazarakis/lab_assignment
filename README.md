@@ -32,7 +32,7 @@ The tool that have been used is Maven and the code that builds the diagram you c
 ## Contributing
 Contribution is always welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-##
-You can find the ReadMe file fot the second assignment [Here](Unit_Testing/README.md).
+## Third Lab Assignment
+You can find the ReadMe file fot the third lab assignment [Here](Unit_Testing/README.md).
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
