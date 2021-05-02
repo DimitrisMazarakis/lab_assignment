@@ -1,6 +1,5 @@
 # Unit Testing demonstration project
 [![Build Status](https://travis-ci.com/DimitrisMazarakis/lab_assignment.svg?token=vA99SPhkUkdzsEZp7i3d&branch=development)](https://travis-ci.com/DimitrisMazarakis/lab_assignment)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Overview
 This is a Java project that create test cases that challenge the functionality of some Math methods. It is the second lab assgnment for the course Software Engineering.
