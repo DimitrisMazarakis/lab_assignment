@@ -12,12 +12,12 @@ public class FileIOTest {
 	
 	@Test
 	public void testReadFileValidInput() {
-		Integer[] expectedNumbers = new Integer[] {
+		int[] expectedNumbers = new int[] {
 				4,6,16,12,1007,
 				13131,0,-1};
 		String validInputFilepath = resourcesPath.concat("numbers_valid.txt");
 		
-		Assert.assertEquals(expectedNumbers, fileio.readFile(validInputFilepath));
+		Assert.assertArrayEquals(expectedNumbers, fileio.readFile(validInputFilepath));
 	}
 	
 	@Rule
@@ -49,7 +49,7 @@ public class FileIOTest {
 	@Test
 	public void testReadFileContainsInvalidEntries() {
 		thrownss.expect(IllegalArgumentException.class);
-		thrownss.expectMessage("Given file has non valid characters");
+		thrownss.expectMessage("Given has non valid characters");
 		
 		String validInputFilepath = resourcesPath.concat("numbers_non_valid.txt");
 		
