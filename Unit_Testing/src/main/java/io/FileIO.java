@@ -35,11 +35,16 @@ public class FileIO {
 		
 		List<Integer> numbersList = new ArrayList<>();
 		BufferedReader reader;
+		Boolean digit;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				int number = Integer.parseInt(line);
+				digit = Character.isDigit(number);
+				if (digit == false) {
+					throw new IllegalArgumentException("Given file has non valid characters");
+				}
 				numbersList.add(number);
 			}
 		} catch (IOException e) {
@@ -48,6 +53,7 @@ public class FileIO {
 		
 		if (numbersList.size() == 0) 
 			throw new IllegalArgumentException("Given file is empty");
+		
 		
 		// Convert a List to an array using 
 		return numbersList.stream().mapToInt(i -> i).toArray();
