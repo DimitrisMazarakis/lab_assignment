@@ -49,7 +49,7 @@ public class FileIOTest {
 	@Test
 	public void testReadFileContainsInvalidEntries() {
 		thrownss.expect(IllegalArgumentException.class);
-		thrownss.expectMessage("Given has non valid characters");
+		thrownss.expectMessage("Given file has non valid characters");
 		
 		String validInputFilepath = resourcesPath.concat("numbers_non_valid.txt");
 		
