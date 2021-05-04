@@ -35,16 +35,16 @@ public class FileIO {
 		
 		List<Integer> numbersList = new ArrayList<>();
 		BufferedReader reader;
-		Boolean digit;
+		int number;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				int number = Integer.parseInt(line);
-				digit = Character.isDigit(number);
-				if (digit == false) {
-					throw new IllegalArgumentException("Given file has non valid characters");
-				}
+				try {
+					number = Integer.parseInt(line);;
+			    } catch (NumberFormatException nfe) {//if its not a number then it will throw exception
+			    	throw new IllegalArgumentException("Given file has non valid characters");
+			    }
 				numbersList.add(number);
 			}
 		} catch (IOException e) {

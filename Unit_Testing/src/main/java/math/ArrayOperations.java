@@ -8,7 +8,7 @@ import io.FileIO;
 public class ArrayOperations {
 	
 	/**
-	 * Take as an input a filepath whick contains numbers and return an array with prime numbers of the file.
+	 * Take as an input a filepath whic contains numbers and return an array with prime numbers of the file.
 	 * @param an FileIo object
 	 * @param String filepath
 	 * @param MyMath object
@@ -21,6 +21,7 @@ public class ArrayOperations {
 
 		List<Integer> numbersPrime = new ArrayList<>();
 		int[] numbersArray=new int[arraySize];//initialize array with the length of the array from fileIo 
+		numbersArray=fileIo.readFile(filepath);
 		
 		for (int i = 0; i < numbersArray.length; i++) {
 			if ( myMath.isPrime(numbersArray[i])) { //checks if the number is prime

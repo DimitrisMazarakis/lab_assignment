@@ -9,7 +9,7 @@ import org.junit.rules.ExpectedException;
  * A test class that implements a Parameterized test
  * for the ArithmeticOperations class, 
  * for demonstrating Unit Testing.
- * @author 
+ * @author DimitrisMazarakis
  */
 public class ArithmeticOperationsTest {
 	
