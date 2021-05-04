@@ -19,7 +19,7 @@ public class ArrayOperations {
  
 		int arraySize = fileIo.readFile(filepath).length;
 
-		List<Integer> numbersPrime = new ArrayList<>();
+		List<Integer> numbersPrime = new ArrayList();
 		int[] numbersArray=new int[arraySize];//initialize array with the length of the array from fileIo 
 		numbersArray=fileIo.readFile(filepath);
 		
