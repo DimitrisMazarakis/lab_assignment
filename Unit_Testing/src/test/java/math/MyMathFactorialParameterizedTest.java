@@ -26,18 +26,6 @@ public class MyMathFactorialParameterizedTest {
 	public int input;
 	@Parameter (value = 1)
 	public int result;
-//	@Parameter (value = 1) 
-//	public int input2;
-//	@Parameter (value = 1)
-//	public int result2;
-//	@Parameter (value = 2) 
-//	public int input3;
-//	@Parameter (value = 2)
-//	public int result3;
-//	@Parameter (value = 12) 
-//	public int input4;
-//	@Parameter (value = 479001600)
-//	public int result4;
 
 	MyMath mam = new MyMath();
 	
@@ -59,9 +47,6 @@ public class MyMathFactorialParameterizedTest {
 	@Test
 	public void testPowerOfTwoWithNormalCases() {
 		Assert.assertEquals(result, mam.factorial(input));
-//		Assert.assertEquals(result2, mam.factorial(input2));
-//		Assert.assertEquals(result3, mam.factorial(input3));
-//		Assert.assertEquals(result4, mam.factorial(input4));
 	}
 	
 }

@@ -34,15 +34,12 @@ public class ArrayOperationsTest {
 	FileIO fileIo = mock(FileIO.class);
 	MyMath myMath = mock(MyMath.class);
 	when(fileIo.readFile(validInputFilepath)).thenReturn(expectedNumbers);
-	//when(myMath.isPrime(0)).thenThrow(IllegalArgumentException.class);
 	when(myMath.isPrime(6)).thenReturn(false);
 	when(myMath.isPrime(2)).thenReturn(true);
 	when(myMath.isPrime(3)).thenReturn(true);
-	//when(myMath.isPrime(1)).thenThrow(IllegalArgumentException.class);
 	when(myMath.isPrime(124)).thenReturn(false);
 	when(myMath.isPrime(1246)).thenReturn(false);
 	when(myMath.isPrime(2)).thenReturn(true);
-	//when(myMath.isPrime(-23)).thenThrow(IllegalArgumentException.class);
 	when(myMath.isPrime(3)).thenReturn(true);
 	when(myMath.isPrime(5)).thenReturn(true);
 	Assert.assertArrayEquals(expectedPrimes, arop.findPrimesInFile(fileIo, validInputFilepath, myMath));
