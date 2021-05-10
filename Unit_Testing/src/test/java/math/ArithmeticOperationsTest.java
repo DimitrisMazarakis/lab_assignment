@@ -90,6 +90,7 @@ public class ArithmeticOperationsTest {
 
     /*
      * A test case for the exceptions caused when
+<<<<<<< HEAD
      * y input value is zero.
      */
     @Test
@@ -97,6 +98,11 @@ public class ArithmeticOperationsTest {
         Assert.assertEquals(0, arith.multiply(2, 0));
     }
     
+=======
+     * one or more input values are negative. Testing
+     * the exception is performed with a @Rule
+     */
+>>>>>>> ab95ce8b3ce71fc49d133650d7755ec68efc3fdd
     @Rule
     public ExpectedException throwns = ExpectedException.none(); //initialize it to .none()
     @Test
@@ -108,13 +114,24 @@ public class ArithmeticOperationsTest {
     
     /*
      * A test case for the exceptions caused when
+<<<<<<< HEAD
      * when you divide the max values.
      */
     @Test
     public void testMultiplyShouldThrowExceptionOnMaxValueInput() {
+=======
+     * the result of the addition doesn't fit 
+     * in an Integer variable.
+     */
+    @Test
+    public void testMultiplyShouldThrowExceptionOnNonIntegerInput() {
+>>>>>>> ab95ce8b3ce71fc49d133650d7755ec68efc3fdd
         throwns.expect(IllegalArgumentException.class);
         throwns.expectMessage("The product does not fit in an Integer variable");
         arith.multiply(2, Integer.MAX_VALUE);
     }
+<<<<<<< HEAD
   
+=======
+>>>>>>> ab95ce8b3ce71fc49d133650d7755ec68efc3fdd
 }
