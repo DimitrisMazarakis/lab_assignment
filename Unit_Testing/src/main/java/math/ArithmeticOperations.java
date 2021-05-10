@@ -34,6 +34,9 @@ public class ArithmeticOperations {
      * @exception IllegalArgumentException when the product does not fit in an Integer variable 
      */
     public int multiply(int x, int y) {
+    	if(y == 0) {
+    		return 0;
+    	}
         if (x < 0 || y < 0) {
             throw new IllegalArgumentException("Input numbers should be positive.");
         } else if (x <= Integer.MAX_VALUE / y) {
