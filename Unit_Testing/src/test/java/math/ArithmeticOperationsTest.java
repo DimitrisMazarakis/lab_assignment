@@ -90,16 +90,6 @@ public class ArithmeticOperationsTest {
 
     /*
      * A test case for the exceptions caused when
-     * the result of the addition doesn't fit 
-     * in an Integer variable.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testMultiplyShouldThrowExceptionOverflow() {
-        arith.multiply(2, Integer.MAX_VALUE);
-    }
-
-    /*
-     * A test case for the exceptions caused when
      * one or more input values are negative. Testing
      * the exception is performed with a @Rule
      */
@@ -110,5 +100,17 @@ public class ArithmeticOperationsTest {
         throwns.expect(IllegalArgumentException.class);
         throwns.expectMessage("Input numbers should be positive.");
         arith.multiply(-5, 1);
+    }
+    
+    /*
+     * A test case for the exceptions caused when
+     * the result of the addition doesn't fit 
+     * in an Integer variable.
+     */
+    @Test
+    public void testMultiplyShouldThrowExceptionOnNonIntegerInput() {
+        throwns.expect(IllegalArgumentException.class);
+        throwns.expectMessage("The product does not fit in an Integer variable");
+        arith.multiply(2, Integer.MAX_VALUE);
     }
 }
