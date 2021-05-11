@@ -76,6 +76,22 @@ public class MyMathTest {
 		mym.isPrime(540);
 	}
 	
+	/*
+	* A unit test that checks a normal input
+	*/
+	@Test 
+	public void testIsPrimeWhenInputIsNormal() {
+		mym.isPrime(13);
+	}
+	
+	/*
+	* A unit test that checks a input that is divided by three 
+	*/
+	@Test 
+	public void testIsPrimeWhenInputIsDividedBy3() {
+		mym.isPrime(15);
+	}
+	
 }
 
 
