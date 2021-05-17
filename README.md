@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/DimitrisMazarakis/lab_assignment.svg?token=vA99SPhkUkdzsEZp7i3d&branch=development)](https://travis-ci.com/DimitrisMazarakis/lab_assignment)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Second lab assignment
 
 ## Overview
@@ -30,5 +33,7 @@ The tool that have been used is Maven and the code that builds the diagram you c
 ## Contributing
 Contribution is always welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Third Lab Assignment
+You can find the ReadMe file fot the third lab assignment [Here](Unit_Testing/README.md).
+## License 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

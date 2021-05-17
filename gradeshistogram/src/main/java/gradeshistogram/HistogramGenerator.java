@@ -9,22 +9,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-/***
- * 
- * @author DimitrisMazarakis The purpose of this class is to create a histogram when a file with grades is given.
- * @since April 2021 
- */
-
 public class HistogramGenerator {
-
-    /***
-	 * Receives a single dimension Integer array. From this array the dataset
-	 * that will be used for the visualization is generated. Finally, The chart
-	 * is generated with the use of the aforementioned dataset and then
-	 * presented in the screen.
-	 * 
-	 * @param dataValues Single dimension integer array
-	 */
 
     public void generateChart(int[] dataValues) {
         /*
@@ -68,16 +53,6 @@ public class HistogramGenerator {
         frame.setVisible(true);
     }
 
-    /***
-	 * Receives a single dimension Integer array. The algorithm that follows 
-     * fills a the table frequency with the frequency of each grade and if one grade 
-     * exists in other positions in the frequency table then the value that it gets is -1.
-     * And after the table all_grades is filled with the values from the frequency table
-     * except the -1 values.
-     * 
-	 * @param grades Single dimension integer array
-     * @return all_grades Single dimension integer array
-	 */
     public static int[] findFreq(int[] grades) {
         int visited = -1;
         int[] frequency = new int[grades.length];
@@ -101,14 +76,6 @@ public class HistogramGenerator {
         return all_grades;
     }
 
-    /***
-	 * Receives a single dimension String array. This method read a file 
-     * with the name that exists in the args table and after it converts the grades from the to 
-     * integer items. 
-     * 
-	 * @param args Single dimension String array
-     * @return data Single dimension integer array
-	 */
     public static int[] fetchData(String[] args) {
         int c = 0;
         Scanner fl = null;
