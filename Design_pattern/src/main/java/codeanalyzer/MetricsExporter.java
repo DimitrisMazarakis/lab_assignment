@@ -12,19 +12,13 @@ import java.util.Map;
  * @author agkortzis
  *
  */
-public class MetricsExporter {
+public interface MetricsExporter {
+	public void write(Map<String, Integer> metrics, String filepath);
+}
+
+class CsvWriter implements MetricsExporter {
 	
-	public void writeFile(String outputType, Map<String, Integer> metrics, String filepath) {
-		if (outputType.equals("csv")) {
-			writeCsv(metrics, filepath);
-		} else if (outputType.equals("json")) {
-			writeJson(metrics, filepath);
-		} else {
-			throw new IllegalArgumentException("Unknown type : " + outputType);
-		}
-	}
-	
-	private void writeCsv(Map<String, Integer> metrics, String filepath) {
+	public void write(Map<String, Integer> metrics, String filepath) {
 		File outputFile = new File(filepath + ".csv");
 		StringBuilder metricsNames = new StringBuilder();
 		StringBuilder metricsValues = new StringBuilder();
@@ -43,12 +37,20 @@ public class MetricsExporter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
+}
+
+class JsonWriter implements MetricsExporter {
 	
-	private void writeJson(Map<String, Integer> metrics, String filepath) {
+	public void write(Map<String, Integer> metrics, String filepath) {
 		// Functionality not implemented yet
 		// No need to implement it for the assignment
-	}
+	}	
+}
 
+class NullWriter implements MetricsExporter {
+	@Override
+	public void write(Map<String, Integer> metrics, String filepath) {
+		System.err.println("Operation aborted due to unknown file type");
+	}
 }

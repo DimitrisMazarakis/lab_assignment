@@ -1,14 +1,11 @@
-package demo;
+package codeanalyzer;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import codeanalyzer.*;
+public class Facade {
 
-public class DemoClient {
-
-	public static void main(String[] args) throws IOException {
+	public void operations(String[] args) {
 		String filepath = "src/main/resources/TestClass.java";
 		String sourceCodeAnalyzerType = "regex";
 		String sourceFileLocation = "local";
@@ -25,19 +22,12 @@ public class DemoClient {
 			System.out.println("Incorrect number of arguments.");
 			System.exit(1);
 		}
-
-		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFileLocation);
-		int loc = analyzer.calculateLOC(filepath, sourceCodeAnalyzerType);
-		int nom = analyzer.calculateNOM(filepath, sourceCodeAnalyzerType);
-		int noc = analyzer.calculateNOC(filepath, sourceCodeAnalyzerType);
 		
-		Map<String, Integer> metrics = new HashMap<>();
-		metrics.put("loc",loc);
-		metrics.put("nom",nom);
-		metrics.put("noc",noc);
-				
-		MetricsExporter exporter = new MetricsExporter();
+		SourceCodeAnalyzerFactory analyzer =new SourceCodeAnalyzerFactory();
+
+		Map<String, Integer> metrics = analyzer.createCalculations(outputFilePath, sourceCodeAnalyzerType, sourceFileLocation);
+		
+		MetricsExporterFactory exporter = new MetricsExporterFactory();
 		exporter.writeFile(outputFileType, metrics, outputFilePath);
 	}
-
 }

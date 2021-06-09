@@ -16,13 +16,15 @@ import java.util.List;
  * @author agkortzis
  *
  */
-public class SourceFileReader {
+public interface FileReader {
 	
 	private String type;
 	
 	public SourceFileReader(String _type) {
 		this.type = _type;
 	}
+	
+	public List<String> readFile()
 
 	/**
 	 * Reads a file and returns its content in a List
