@@ -33,6 +33,7 @@ public class SourceCodeAnalyzerFactory {
 			metrics.put("loc",loc);
 			metrics.put("nom",nom);
 			metrics.put("noc",noc);
+			
 			return metrics;
 		}catch(Exception e) {
 			return null;

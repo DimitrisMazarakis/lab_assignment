@@ -21,7 +21,7 @@ public class SourceCodeAnalyzerFactoryTest {
 	private final static String TYPE_REGEX = "regex";
 	private final static String TYPE_STRCOMP = "strcomp";
 	private final static String TEST_CLASS = "src/test/resources/TestClass.java";
-	private SourceCodeAnalyzerFactory analyzer;
+	private SourceCodeAnalyzerFactory analyzer = new SourceCodeAnalyzerFactory();
 	private Map<String, Integer> metrics = new HashMap<>();
 	
 	@Test
@@ -29,7 +29,7 @@ public class SourceCodeAnalyzerFactoryTest {
 		metrics.put("loc",21);
 		metrics.put("nom",3);
 		metrics.put("noc",3);
-		assertEquals(metrics, analyzer.createCalculations(TEST_CLASS, TYPE_REGEX, "local"));
+		assertEquals(metrics,analyzer.createCalculations(TEST_CLASS, TYPE_REGEX, "local"));
 	}
 	
 	@Test
@@ -37,7 +37,6 @@ public class SourceCodeAnalyzerFactoryTest {
 		metrics.put("loc",7);
 		metrics.put("nom",3);
 		metrics.put("noc",3);
-		assertTrue(metrics.equals(analyzer.createCalculations(TEST_CLASS, "strcomp", "local")));
-		//assertEquals(metrics, analyzer.createCalculations(TEST_CLASS, TYPE_STRCOMP, "local"));
+		assertEquals(metrics,analyzer.createCalculations(TEST_CLASS, TYPE_STRCOMP, "local"));
 	}
 }
