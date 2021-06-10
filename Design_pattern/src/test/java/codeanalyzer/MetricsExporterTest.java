@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import codeanalyzer.MetricsExporter;
 
@@ -16,8 +18,6 @@ import static org.mockito.Mockito.doCallRealMethod;
 
 public class MetricsExporterTest {
 	
-	MetricsExporter mex = new MetricsExporter();
-	
 	@Test
 	public void testWriteCsv() {
 		// create the metrics content
@@ -26,9 +26,10 @@ public class MetricsExporterTest {
 		metrics.put("nom",5);
 		metrics.put("noc",2);
 		
+		MetricsExporter mex = new CsvWriter();
 		// generate and write the output file
 		String outputFilepath = "src/test/resources/output_metrics";
-		mex.writeFile("csv", metrics, outputFilepath);
+		mex.write(metrics, outputFilepath);
 		
 		// evaluate that the file exists
 		File outputFile = new File(outputFilepath + ".csv");
@@ -40,21 +41,23 @@ public class MetricsExporterTest {
 	
 	@Test
 	public void testWriteJson() {
-		MetricsExporter mockedExporter = mock(MetricsExporter.class);
+		MetricsExporter mockedExporter = mock(JsonWriter.class);
 		// create an empty metrics content
 		Map<String, Integer> metrics = new HashMap<>();
 		String outputFilepath = "whatever-path";
 		
 		//this is a demo of how a mocked object can call a real method (partial mocking)
-		doCallRealMethod().when(mockedExporter).writeFile("json", metrics, outputFilepath);
-		mockedExporter.writeFile("json", metrics, outputFilepath);
+		doCallRealMethod().when(mockedExporter).write( metrics, outputFilepath);
+		mockedExporter.write(metrics, outputFilepath);
 		//just verify that the method was executed/called
-		verify(mockedExporter).writeFile("json", metrics, outputFilepath);
+		verify(mockedExporter).write(metrics, outputFilepath);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testWriteFileWithUknownFIleType() {
-		mex.writeFile("non-existing-type", null, null);
-	}
+	
+//	@Test(expected = IllegalArgumentException.class)
+//	public void testWriteFileWithUknownFIleType() {
+//		MetricsExporter mex = new NullWriter();
+//		mex.write(null, null);
+//	}
 
 }

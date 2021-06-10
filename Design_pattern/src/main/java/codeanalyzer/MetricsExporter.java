@@ -6,16 +6,19 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Exports (writes) the metrics to a given output.
- * The output can be CSV or JSON files.
- * This class deliberately contains code smells and violations of design principles. 
- * @author agkortzis
+ * Exports (writes) the metrics to a given output. 
+ * @author DimitrisMazarakis
  *
  */
 public interface MetricsExporter {
 	public void write(Map<String, Integer> metrics, String filepath);
 }
 
+/**
+ * Exports (writes) the metrics to csv output. 
+ * @author DimitrisMazarakis
+ *
+ */
 class CsvWriter implements MetricsExporter {
 	
 	public void write(Map<String, Integer> metrics, String filepath) {
@@ -40,14 +43,23 @@ class CsvWriter implements MetricsExporter {
 	}
 }
 
+/**
+ * Exports (writes) the metrics to json output. 
+ * @author DimitrisMazarakis
+ *
+ */
 class JsonWriter implements MetricsExporter {
 	
 	public void write(Map<String, Integer> metrics, String filepath) {
 		// Functionality not implemented yet
-		// No need to implement it for the assignment
 	}	
 }
 
+/**
+ * Does not export the metrics due to unknown output. 
+ * @author DimitrisMazarakis
+ *
+ */
 class NullWriter implements MetricsExporter {
 	@Override
 	public void write(Map<String, Integer> metrics, String filepath) {

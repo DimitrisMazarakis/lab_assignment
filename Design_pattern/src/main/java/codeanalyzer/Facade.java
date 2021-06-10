@@ -1,7 +1,13 @@
 package codeanalyzer;
 
-import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * Starts the operations by creating SourceCodeAnalyzerFactory 
+ * and MetricsExporterFactory objects to call their functions. 
+ * @author DimitrisMazarakis
+ *
+ */
 
 public class Facade {
 
@@ -25,7 +31,7 @@ public class Facade {
 		
 		SourceCodeAnalyzerFactory analyzer =new SourceCodeAnalyzerFactory();
 
-		Map<String, Integer> metrics = analyzer.createCalculations(outputFilePath, sourceCodeAnalyzerType, sourceFileLocation);
+		Map<String, Integer> metrics = analyzer.createCalculations(filepath, sourceCodeAnalyzerType, sourceFileLocation);
 		
 		MetricsExporterFactory exporter = new MetricsExporterFactory();
 		exporter.writeFile(outputFileType, metrics, outputFilePath);

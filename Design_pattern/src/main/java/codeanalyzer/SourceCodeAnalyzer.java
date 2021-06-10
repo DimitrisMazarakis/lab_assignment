@@ -2,7 +2,6 @@ package codeanalyzer;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,11 +9,7 @@ import java.util.regex.Pattern;
  * Analyzes the contents of a Java source code file 
  * and calculates the following metrics: loc = lines of code,
  * nom = number of methods, and noc=number of classes. 
- * The current functionality supports two types of source code analysis,
- * namely regex (with the use of regular expressions) and 
- * strcomp (with the use of string comparison).
- * This class deliberately contains code smells and violations of design principles. 
- * @author agkortzis
+ * @author DimitrisMazarakis
  *
  */
 public interface SourceCodeAnalyzer {
@@ -24,6 +19,10 @@ public interface SourceCodeAnalyzer {
 	public int calculateNOC(String filepath, String analyzerType, SourceFileReaderFactory fileReader) throws IOException;
 }
 
+/**
+* The current class supports a type of source code analysis,
+* namely regex (with the use of regular expressions)
+*/
 class RegexAnalyzer implements SourceCodeAnalyzer {
 	@Override
 	public int calculateLOC(String filepath, String analyzerType, SourceFileReaderFactory fileReader) throws IOException {
@@ -69,6 +68,10 @@ class RegexAnalyzer implements SourceCodeAnalyzer {
 	}	
 }
 
+/**
+* The current class supports a type of source code analysis,
+* namely strcomp (with the use of string comparison)
+*/
 class StrcompAnalyzer implements SourceCodeAnalyzer {
 	@Override
 	public int calculateLOC(String filepath, String analyzerType, SourceFileReaderFactory fileReader) throws IOException {
@@ -111,6 +114,9 @@ class StrcompAnalyzer implements SourceCodeAnalyzer {
 	}	
 }
 
+/**
+* The current class supports an unknown type of source code analysis
+*/
 class NullAnalyzer implements SourceCodeAnalyzer {
 	public int calculateLOC(String filepath, String analyzerType, SourceFileReaderFactory fileReader) throws IOException {
 		return 0;

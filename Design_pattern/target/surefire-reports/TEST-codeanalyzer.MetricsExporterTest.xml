@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="codeanalyzer.MetricsExporterTest" time="0.849" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="codeanalyzer.MetricsExporterTest" time="0.839" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_271\jre\bin"/>
     <property name="java.vm.version" value="25.271-b09"/>
+    <property name="user.country.format" value="GR"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\GNR\OneDrive\Δ.Ε.Τ\software\maven\Design_pattern"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
@@ -49,6 +50,7 @@
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
+    <property name="user.language.format" value="el"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.version" value="1.8.0_271"/>
@@ -65,7 +67,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="codeanalyzer.MetricsExporterTest" name="testWriteCsv" time="0.007"/>
-  <testcase classname="codeanalyzer.MetricsExporterTest" name="testWriteJson" time="0.841"/>
-  <testcase classname="codeanalyzer.MetricsExporterTest" name="testWriteFileWithUknownFIleType" time="0.001"/>
+  <testcase classname="codeanalyzer.MetricsExporterTest" name="testWriteCsv" time="0.01"/>
+  <testcase classname="codeanalyzer.MetricsExporterTest" name="testWriteJson" time="0.829"/>
 </testsuite>

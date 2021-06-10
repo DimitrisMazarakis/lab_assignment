@@ -11,34 +11,32 @@ import java.util.List;
 
 /**
  * Retrieves (reads) the contents of a given file.
- * The file can be stored locally or exist on the web.
- * This class deliberately contains code smells and violations of design principles. 
- * @author agkortzis
+ * The file can be stored locally or exist on the web. 
+ * @author DimitrisMazarakis
  *
  */
 public interface SourceFileReader {
 	
-	private String type;
-	
-	public SourceFileReader(String _type) {
-		this.type = _type;
-	}
 	public List<String> readFileIntoList(String filepath) throws IOException;
 	public String readFileIntoString(String filepath) throws IOException;
 	
 }
+
+/**
+ * Retrieves (reads) the contents of a given file.
+ * The file can be stored only locally.
+ * @author DimitrisMazarakis
+ *
+ */
+class readLocalFile implements SourceFileReader {
+	
 	/**
 	 * Reads a file and returns its content in a List
-	 * @param fileReaderType the location of a file 
-	 * (<b>local</b> for locally stored files, 
-	 * <b>web</b> for files stored on the web). 
-	 * @param filepath the url of the file
+	 * @param filepath the path of a file  
 	 * @return a List that contains the contents of the file 
-	 * or null if the type is neither <b>local</b> nor <b>web</b>
+	 * or null
 	 * @throws IOException
 	 */
-// read a locally stored file
-class readLocalFile implements SourceFileReader {
 	@Override
 	public List<String> readFileIntoList(String filepath) throws IOException {
 		// read a locally stored file
@@ -53,6 +51,13 @@ class readLocalFile implements SourceFileReader {
 		return lines;
 	}
 	
+	/**
+	 * Reads a file and returns its content in a String
+	 * @param filepath the path of a file  
+	 * @return a String that contains the contents of the file 
+	 * or null
+	 * @throws IOException
+	 */
 	@Override
 	public String readFileIntoString(String filepath) throws IOException {
 		// read a locally stored file
@@ -69,7 +74,21 @@ class readLocalFile implements SourceFileReader {
 
 }
 
+/**
+ * Retrieves (reads) the contents of a given file.
+ * The file can be stored only on web.
+ * @author DimitrisMazarakis
+ *
+ */
 class readWebFile implements SourceFileReader {
+	
+	/**
+	 * Reads a file and returns its content in a List
+	 * @param filepath the url of the file
+	 * @return a List that contains the contents of the file 
+	 * or null
+	 * @throws IOException
+	 */
 	@Override
 	public List<String> readFileIntoList(String filepath) throws IOException {
 		List<String> lines = new ArrayList<>();
@@ -83,6 +102,13 @@ class readWebFile implements SourceFileReader {
 		return lines;
 	}
 	
+	/**
+	 * Reads a file and returns its content in a String
+	 * @param filepath the url of the file
+	 * @return a String that contains the contents of the file 
+	 * or null
+	 * @throws IOException
+	 */
 	@Override
 	public String readFileIntoString(String filepath) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -98,18 +124,37 @@ class readWebFile implements SourceFileReader {
 
 }
 
+/**
+ * Retrieves (reads) the contents of a given file.
+ * The file is stored in unknown place.
+ * @author DimitrisMazarakis
+ *
+ */
 class readNullFile implements SourceFileReader {
+	
+	/**
+	 * Reads a file and returns an empty List
+	 * @param filepath the unknown path of a file  
+	 * @return a null List
+	 * @throws IOException
+	 */
 	@Override
 	public List<String> readFileIntoList(String filepath) throws IOException {
 		List<String> lines = new ArrayList<>();
-		System.err.println("Operation aborted due to unknown Source type");
+		System.err.println("Operation aborted due to unknown Source type readFileIntoList");
 		return lines;
 	}
 	
+	/**
+	 * Reads a file and returns an empty String
+	 * @param filepath the unknown path of a file  
+	 * @return a empty String
+	 * @throws IOException
+	 */
 	@Override
 	public String readFileIntoString(String filepath) throws IOException {
 		StringBuilder sb = new StringBuilder();
-		System.err.println("Operation aborted due to unknown Source type");
+		System.err.println("Operation aborted due to unknown Source type readFileIntoString");
 		return sb.toString();
 	}
 

@@ -1,2 +1,5 @@
+codeanalyzer\SourceCodeAnalyzerFactoryTest.class
 codeanalyzer\MetricsExporterTest.class
 codeanalyzer\SourceFileReaderTest.class
+codeanalyzer\SourceFileReaderFactoryTest.class
+codeanalyzer\SourceCodeAnalyzerTest.class

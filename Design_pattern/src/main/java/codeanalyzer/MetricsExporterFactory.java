@@ -1,8 +1,12 @@
 package codeanalyzer;
 
-import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Creates MetricsExporter objects and calling their functions to write the file. 
+ * @author DimitrisMazarakis
+ *
+ */
 public class MetricsExporterFactory {
 	
 	public void writeFile(String outputType, Map<String, Integer> metrics, String filepath) {
@@ -18,5 +22,4 @@ public class MetricsExporterFactory {
 			//throw new IllegalArgumentException("Unknown type : " + outputType);
 		}
 	}
-	
 }
