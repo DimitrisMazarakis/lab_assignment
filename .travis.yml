@@ -9,6 +9,7 @@ branches:
 
 before_script: 
   - cd Unit_Testing
+  - cd Design_Pattern
   - ls -la # this command just prints the contents of the current working directory.
 
 script: 
