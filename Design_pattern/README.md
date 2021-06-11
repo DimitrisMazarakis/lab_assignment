@@ -48,27 +48,47 @@ arg4 = “OutputFileType” [csv|json]
 
 ## Class Diagram
 Here you can see the class diagram of the progrma which has been made with the tool [Visual Paradigm](https://www.visual-paradigm.com/)
+Every color represents a different Strategy Pattern.
 
 ![](/media/4th_lab_Assignment.png)
 
 # Report
+In order to redisign this program I used the Facade Pattern,  the Factory Pattern and the Strategy Pattern.
+## Update DemoClient class
+### Role
++ Reads the command line arguments
++ Communicate with the Facade class
+### Pros
++ It is now independant from the other classes. If a change occurs to other classes then this class will not be affected.
 ## Creation of Facade class
 ### Role
-+ Creates a communication between DemoClient and the SourceCodeAnalyzerFactory and MetricsExporterFactory
-+ Reads the command line arguments
++ The main role is to make all the necessary operations by calling all the methods needed for the program
++ Creates a communication between DemoClient, the SourceCodeAnalyzerF, the MetricsExporterFactory and the SourceFileReaderFactory classes 
 + Calls the Factories methods
 ### Pros
 + Simplier interface
 + The Democlient class is independant from the other classes
 + De-couples the subsystem for DemoClient
-
 ## Creation of SourceCodeAnalyzerFactory class
 ### Role
-+ Calls the calculations methods of the SourceCodeAnalyzer interface
-+ The createCalculations method returns the metrics to the Facade class
++ Creates the right SourceCodeAnalyzer object.
 ### Pros
-+ It groups all SourceCodeAnalyzer objects without exposing them to the Facade class
++ The Facade class does not need to know how the object is returned
 + It is now more flexible because we can extend SourceCodeAnalyzer hierarchy without affecting
+the Facade class.
+## Creation of SourceFileReaderFactory class
+### Role
++ Creates the right SourceFileReader object.
+### Pros
++ The Facade class does not need to know how the object is returned
++ It is now more flexible because we can extend SourceFileReader hierarchy without affecting
+the Facade class.
+## Creation of MetricsExporterFactory class
+### Role
++ Creates the right MetricsExporter object.
+### Pros
++ The Facade class does not need to know how the object is returned
++ It is now more flexible because we can extend MetricsExporter hierarchy without affecting
 the Facade class.
 ## Contributing
 You are more than welcome to contribute in this project. Just have in mind that the repository aims at providing an overview of unit testing functionality and Continuous Integration plug-ins related to testing. 
