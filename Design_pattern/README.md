@@ -51,6 +51,25 @@ Here you can see the class diagram of the progrma which has been made with the t
 
 ![](/media/4th_lab_Assignment.png)
 
+# Report
+## Creation of Facade class
+### Role
++ Creates a communication between DemoClient and the SourceCodeAnalyzerFactory and MetricsExporterFactory
++ Reads the command line arguments
++ Calls the Factories methods
+### Pros
++ Simplier interface
++ The Democlient class is independant from the other classes
++ De-couples the subsystem for DemoClient
+
+## Creation of SourceCodeAnalyzerFactory class
+### Role
++ Calls the calculations methods of the SourceCodeAnalyzer interface
++ The createCalculations method returns the metrics to the Facade class
+### Pros
++ It groups all SourceCodeAnalyzer objects without exposing them to the Facade class
++ It is now more flexible because we can extend SourceCodeAnalyzer hierarchy without affecting
+the Facade class.
 ## Contributing
 You are more than welcome to contribute in this project. Just have in mind that the repository aims at providing an overview of unit testing functionality and Continuous Integration plug-ins related to testing. 
 - If you have any suggestions please open an issue. 
