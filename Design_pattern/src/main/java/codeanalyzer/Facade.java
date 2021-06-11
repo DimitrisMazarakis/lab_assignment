@@ -1,5 +1,6 @@
 package codeanalyzer;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,29 +12,30 @@ import java.util.Map;
 
 public class Facade {
 
-	public void operations(String[] args) {
-		String filepath = "src/main/resources/TestClass.java";
-		String sourceCodeAnalyzerType = "regex";
-		String sourceFileLocation = "local";
-		String outputFilePath = "output_metrics";
-		String outputFileType = "csv";
+	public void operations(String filepath, String sourceCodeAnalyzerType, String sourceFileLocation, String outputFilePath, String outputFileType) {
 		
-		if(args.length == 5) {
-			filepath = args[0];
-			sourceCodeAnalyzerType = args[1];
-			sourceFileLocation = args[2];
-			outputFilePath = args[3];
-			outputFileType = args[4];
-		} else if (args.length != 0) {
-			System.out.println("Incorrect number of arguments.");
-			System.exit(1);
+		SourceCodeAnalyzerFactory factoryAnalyzer =new SourceCodeAnalyzerFactory();
+		SourceCodeAnalyzer analyzer;
+		SourceFileReaderFactory fileObj = new SourceFileReaderFactory();
+		SourceFileReader reader = fileObj.createReader(sourceFileLocation);
+		
+		analyzer = factoryAnalyzer.createAnalyzer(filepath, sourceCodeAnalyzerType, sourceFileLocation);
+		
+		try {
+			int loc = analyzer.calculateLOC(filepath, sourceCodeAnalyzerType, reader);
+			int nom = analyzer.calculateNOM(filepath, sourceCodeAnalyzerType, reader);
+			int noc = analyzer.calculateNOC(filepath, sourceCodeAnalyzerType, reader);
+			
+			Map<String, Integer> metrics = new HashMap<>();
+			metrics.put("loc",loc);
+			metrics.put("nom",nom);
+			metrics.put("noc",noc);
+			
+			MetricsExporterFactory exporter = new MetricsExporterFactory();
+			MetricsExporter writer = exporter.createwriter(outputFileType);
+			writer.write(metrics, outputFilePath);
+		}catch(Exception e) {
+			
 		}
-		
-		SourceCodeAnalyzerFactory analyzer =new SourceCodeAnalyzerFactory();
-
-		Map<String, Integer> metrics = analyzer.createCalculations(filepath, sourceCodeAnalyzerType, sourceFileLocation);
-		
-		MetricsExporterFactory exporter = new MetricsExporterFactory();
-		exporter.writeFile(outputFileType, metrics, outputFilePath);
 	}
 }

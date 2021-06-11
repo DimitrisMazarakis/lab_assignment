@@ -8,7 +8,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import codeanalyzer.SourceFileReader;
 
@@ -67,21 +69,21 @@ public class SourceFileReaderTest {
 		assertEquals(expectedString, actuals);
 	}
 	
-//	@Test
-//	public void testReadFileIntoListNull() throws IOException {
-//		//give a none existing type to cause a null List return
-//		sfr = new readNullFile();
-//		List<String> actualList = sfr.readFileIntoList("any-filepath");
-//		
-//		assertNull(actualList);
-//	}
-//	
-//	@Test
-//	public void testReadFileIntoStringNull() throws IOException {
-//		//give a none existing type to cause a null String return
-//		sfr = new readNullFile();
-//		String actualString = sfr.readFileIntoString("any-filepath");
-//		
-//		assertNull(actualString);
-//	}
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	@Test
+	public void testReadFileIntoListNull() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type");
+		sfr = new readNullFile();
+		List<String> actualList = sfr.readFileIntoList("something");
+	}
+	
+	@Test
+	public void testReadFileIntoStringNull() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type");
+		sfr = new readNullFile();
+		String actuals = sfr.readFileIntoString("something");
+	}
 }

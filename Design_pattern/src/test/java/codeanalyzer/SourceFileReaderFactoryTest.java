@@ -2,6 +2,7 @@ package codeanalyzer;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +11,9 @@ import java.nio.file.Files;
 import java.util.List;
 
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class SourceFileReaderFactoryTest {
 	private static List<String> expectedList;
@@ -19,7 +22,8 @@ public class SourceFileReaderFactoryTest {
 	private final static String TEST_CLASS_WEB ="https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
 	private final static String TYPE_LOCAL = "local";
 	private final static String TYPE_WEB = "web";
-	private SourceFileReaderFactory reader;
+	private SourceFileReaderFactory factory= new SourceFileReaderFactory();
+	private SourceFileReader reader;
 	
 	@BeforeClass
 	public static void setUp() throws IOException {
@@ -28,42 +32,24 @@ public class SourceFileReaderFactoryTest {
 	}
 	
 	@Test
-	public void testStringFileReaderLocal() throws IOException {
-		reader = new SourceFileReaderFactory(TYPE_LOCAL);
-		assertEquals(expectedString, reader.StringFileReader(TEST_CLASS_LOCAL));
+	public void testcreateReaderLocal() throws IOException {
+		reader = new readLocalFile();
+		assertTrue(reader.getClass().equals(factory.createReader(TYPE_LOCAL).getClass()));
 	}
 	
 	@Test
-	public void testStrFileReaderLocal() throws IOException {
-		reader = new SourceFileReaderFactory(TYPE_LOCAL);
-		List<String> actualList = reader.StrFileReader(TEST_CLASS_LOCAL);
-		
-		String[] expecteds = expectedList.stream().toArray(String[]::new);
-		String[] actuals = actualList.stream().toArray(String[]::new);
-		
-		assertArrayEquals(expecteds, actuals);
-
+	public void testcreateReaderWeb() throws IOException {
+		reader = new readWebFile();
+		assertTrue(reader.getClass().equals(factory.createReader(TYPE_WEB).getClass()));
 	}
 	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 	@Test
-	public void testStringFileReaderWeb() throws IOException {
-		reader = new SourceFileReaderFactory(TYPE_WEB);
-		assertEquals(expectedString, reader.StringFileReader(TEST_CLASS_WEB));
+	public void testcreateReaderNull() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type :???");
+		reader = new readNullFile();
+		assertTrue(reader.getClass().equals(factory.createReader("???").getClass()));
 	}
-	
-	@Test
-	public void testStrFileReaderWeb() throws IOException {
-		reader = new SourceFileReaderFactory(TYPE_WEB);
-		List<String> actualList = reader.StrFileReader(TEST_CLASS_WEB);
-		
-		String[] expecteds = expectedList.stream().toArray(String[]::new);
-		String[] actuals = actualList.stream().toArray(String[]::new);
-		
-		assertArrayEquals(expecteds, actuals);
-
-	}
-//	@Test
-//	public void testCreateCalculationsStrComp() throws IOException {
-//		assertEquals("{loc=21, noc=3, nom=3}", analyzer.createCalculations(TEST_CLASS, TYPE_STRCOMP, "local"));
-//	}
 }

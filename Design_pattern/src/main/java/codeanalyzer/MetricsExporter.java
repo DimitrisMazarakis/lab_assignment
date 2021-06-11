@@ -63,6 +63,6 @@ class JsonWriter implements MetricsExporter {
 class NullWriter implements MetricsExporter {
 	@Override
 	public void write(Map<String, Integer> metrics, String filepath) {
-		System.err.println("Operation aborted due to unknown file type");
+		throw new IllegalArgumentException("Unknown type output type");
 	}
 }

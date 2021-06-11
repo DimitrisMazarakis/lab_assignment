@@ -140,9 +140,7 @@ class readNullFile implements SourceFileReader {
 	 */
 	@Override
 	public List<String> readFileIntoList(String filepath) throws IOException {
-		List<String> lines = new ArrayList<>();
-		System.err.println("Operation aborted due to unknown Source type readFileIntoList");
-		return lines;
+		throw new IllegalArgumentException("Unknown type" );
 	}
 	
 	/**
@@ -153,9 +151,7 @@ class readNullFile implements SourceFileReader {
 	 */
 	@Override
 	public String readFileIntoString(String filepath) throws IOException {
-		StringBuilder sb = new StringBuilder();
-		System.err.println("Operation aborted due to unknown Source type readFileIntoString");
-		return sb.toString();
+		throw new IllegalArgumentException("Unknown type" );
 	}
 
 }

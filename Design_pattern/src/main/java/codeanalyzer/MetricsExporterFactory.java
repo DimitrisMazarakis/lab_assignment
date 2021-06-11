@@ -9,17 +9,16 @@ import java.util.Map;
  */
 public class MetricsExporterFactory {
 	
-	public void writeFile(String outputType, Map<String, Integer> metrics, String filepath) {
+	public MetricsExporter createwriter(String outputType) {
+		MetricsExporter writer;
 		if (outputType.equals("csv")) {
-			MetricsExporter writer = new CsvWriter();
-			writer.write(metrics, filepath);
+			writer = new CsvWriter();
 		} else if (outputType.equals("json")) {
-			MetricsExporter writer = new JsonWriter();
-			writer.write(metrics, filepath);
+			writer = new JsonWriter();
 		} else {
-			MetricsExporter writer = new NullWriter();
-			writer.write(metrics, filepath);
-			//throw new IllegalArgumentException("Unknown type : " + outputType);
+		    writer = new NullWriter();
+			throw new IllegalArgumentException("Unknown type : " + outputType);
 		}
+		return writer;
 	}
 }

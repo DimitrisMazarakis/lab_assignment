@@ -1,7 +1,9 @@
 package codeanalyzer;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -53,11 +55,18 @@ public class MetricsExporterTest {
 		verify(mockedExporter).write(metrics, outputFilepath);
 	}
 	
-	
-//	@Test(expected = IllegalArgumentException.class)
-//	public void testWriteFileWithUknownFIleType() {
-//		MetricsExporter mex = new NullWriter();
-//		mex.write(null, null);
-//	}
-
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	@Test
+	public void testtWriteNull() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type output type");
+		MetricsExporter mockedExporter = mock(NullWriter.class);
+		// create an empty metrics content
+		Map<String, Integer> metrics = new HashMap<>();
+		String outputFilepath = "whatever-path";
+		//this is a demo of how a mocked object can call a real method (partial mocking)
+		doCallRealMethod().when(mockedExporter).write( metrics, outputFilepath);
+		mockedExporter.write(metrics, outputFilepath);
+	}
 }

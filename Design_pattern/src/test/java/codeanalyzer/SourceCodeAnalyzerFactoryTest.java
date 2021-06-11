@@ -1,42 +1,40 @@
 package codeanalyzer;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class SourceCodeAnalyzerFactoryTest {
 
 	private final static String TYPE_REGEX = "regex";
 	private final static String TYPE_STRCOMP = "strcomp";
 	private final static String TEST_CLASS = "src/test/resources/TestClass.java";
-	private SourceCodeAnalyzerFactory analyzer = new SourceCodeAnalyzerFactory();
-	private Map<String, Integer> metrics = new HashMap<>();
+	private SourceCodeAnalyzerFactory factory = new SourceCodeAnalyzerFactory();
+	private SourceCodeAnalyzer analyzer;
 	
 	@Test
-	public void testCreateCalculationsRegex() throws IOException {
-		metrics.put("loc",21);
-		metrics.put("nom",3);
-		metrics.put("noc",3);
-		assertEquals(metrics,analyzer.createCalculations(TEST_CLASS, TYPE_REGEX, "local"));
+	public void testCreateAnalyzerRegex() throws IOException {
+		analyzer = new RegexAnalyzer();
+		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, TYPE_REGEX, "local").getClass()));
 	}
 	
 	@Test
-	public void testCreateCalculationsStrComp() throws IOException {
-		metrics.put("loc",7);
-		metrics.put("nom",3);
-		metrics.put("noc",3);
-		assertEquals(metrics,analyzer.createCalculations(TEST_CLASS, TYPE_STRCOMP, "local"));
+	public void testCreateAnalyzerStrComp() throws IOException {
+		analyzer = new StrcompAnalyzer();
+		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, TYPE_STRCOMP, "local").getClass()));
+	}
+	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	@Test
+	public void testCreateAnalyzerNull() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type :unkwown");
+		analyzer = new NullAnalyzer();
+		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, "unkwown", "local").getClass()));
 	}
 }
