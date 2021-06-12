@@ -53,7 +53,7 @@ Every color represents a different Strategy Pattern. Each factory should have be
 ![](/media/4th_lab_Assignment.png)
 
 # Report
-In order to redisign this program I used the Facade Pattern,  the Factory Pattern, the Strategy Pattern and the Null Object Patttern.
+In order to redisign this program I used the Facade Pattern,  the Factory Pattern, the Strategy Pattern and the Null Object Patttern. After many many changes I decided to keep this specific pattern because I believe that it follows all the SOLID design principles.
 # Facade Patter
 ## Update DemoClient class
 ### DemoClient Role
