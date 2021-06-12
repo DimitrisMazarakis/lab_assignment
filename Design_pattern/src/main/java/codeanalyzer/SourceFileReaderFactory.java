@@ -13,11 +13,11 @@ public class SourceFileReaderFactory {
 	public SourceFileReader createReader(String type) {
 		SourceFileReader reader;
 		if( type.equals("local")){
-			reader = new readLocalFile();
+			reader = new ReadLocalFile();
 		}else if (type.equals("web")) {
-			reader = new readWebFile();
+			reader = new ReadWebFile();
 		}else {
-			reader = new readNullFile();
+			reader = new ReadNullFile();
 			throw new IllegalArgumentException("Unknown type :" + type );
 		}
 		return reader;

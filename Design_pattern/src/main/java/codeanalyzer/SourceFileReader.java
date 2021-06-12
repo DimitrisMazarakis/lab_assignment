@@ -28,7 +28,7 @@ public interface SourceFileReader {
  * @author DimitrisMazarakis
  *
  */
-class readLocalFile implements SourceFileReader {
+class ReadLocalFile implements SourceFileReader {
 	
 	/**
 	 * Reads a file and returns its content in a List
@@ -80,7 +80,7 @@ class readLocalFile implements SourceFileReader {
  * @author DimitrisMazarakis
  *
  */
-class readWebFile implements SourceFileReader {
+class ReadWebFile implements SourceFileReader {
 	
 	/**
 	 * Reads a file and returns its content in a List
@@ -130,7 +130,7 @@ class readWebFile implements SourceFileReader {
  * @author DimitrisMazarakis
  *
  */
-class readNullFile implements SourceFileReader {
+class ReadNullFile implements SourceFileReader {
 	
 	/**
 	 * Reads a file and returns an empty List
