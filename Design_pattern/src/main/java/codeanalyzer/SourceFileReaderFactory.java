@@ -18,7 +18,8 @@ public class SourceFileReaderFactory {
 			reader = new ReadWebFile();
 		}else {
 			reader = new ReadNullFile();
-			throw new IllegalArgumentException("Unknown type :" + type );
+			System.err.println("Operation aborted due to unknown source location type");
+			//throw new IllegalArgumentException("Unknown type :" + type );
 		}
 		return reader;
 	}

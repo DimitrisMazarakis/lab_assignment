@@ -27,13 +27,9 @@ public class MetricsExporterFactoryTest {
 		assertTrue(exporter.getClass().equals(factory.createwriter(TYPE_JSON).getClass()));
 	}
 	
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
 	@Test
 	public void testCreateWriterNull() throws IOException {
-		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage("Unknown type : dasf");
 		exporter = new NullWriter();
-		assertTrue(exporter.getClass().equals(factory.createwriter("dasf").getClass()));
+		assertTrue(exporter.getClass().equals(factory.createwriter("dsfds").getClass()));
 	}
 }

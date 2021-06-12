@@ -27,14 +27,10 @@ public class SourceCodeAnalyzerFactoryTest {
 		analyzer = new StrcompAnalyzer();
 		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, TYPE_STRCOMP, "local").getClass()));
 	}
-	
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
+
 	@Test
 	public void testCreateAnalyzerNull() throws IOException {
-		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage("Unknown type :unkwown");
 		analyzer = new NullAnalyzer();
-		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, "unkwown", "local").getClass()));
+		assertTrue(analyzer.getClass().equals(factory.createAnalyzer(TEST_CLASS, "sfs", "local").getClass()));
 	}
 }

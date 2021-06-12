@@ -43,13 +43,9 @@ public class SourceFileReaderFactoryTest {
 		assertTrue(reader.getClass().equals(factory.createReader(TYPE_WEB).getClass()));
 	}
 	
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
 	@Test
 	public void testcreateReaderNull() throws IOException {
-		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage("Unknown type :???");
 		reader = new ReadNullFile();
-		assertTrue(reader.getClass().equals(factory.createReader("???").getClass()));
+		assertTrue(reader.getClass().equals(factory.createReader("sdfds").getClass()));
 	}
 }

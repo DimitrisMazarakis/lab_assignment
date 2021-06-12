@@ -17,7 +17,8 @@ public class MetricsExporterFactory {
 			writer = new JsonWriter();
 		} else {
 		    writer = new NullWriter();
-			throw new IllegalArgumentException("Unknown type : " + outputType);
+			System.err.println("Operation aborted due to unknown output format");
+			//throw new IllegalArgumentException("Unknown type : " + outputType);
 		}
 		return writer;
 	}

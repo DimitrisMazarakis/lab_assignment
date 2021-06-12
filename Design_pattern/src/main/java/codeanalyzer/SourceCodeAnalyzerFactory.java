@@ -20,7 +20,7 @@ public class SourceCodeAnalyzerFactory {
 			} else {
 				analyzer = new NullAnalyzer();
 				System.err.println("Operation aborted due to unknown Source type");
-				throw new IllegalArgumentException("Unknown type :" + sourceCodeAnalyzerType );
+				//throw new IllegalArgumentException("Unknown type :" + sourceCodeAnalyzerType );
 			}
 			return analyzer;
 	}
