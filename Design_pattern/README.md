@@ -53,7 +53,7 @@ Every color represents a different Strategy Pattern. Each factory should have be
 ![](/media/4th_lab_Assignment.png)
 
 # Report
-In order to redisign this program I used the Facade Pattern,  the Factory Pattern and the Strategy Pattern.
+In order to redisign this program I used the Facade Pattern,  the Factory Pattern, the Strategy Pattern and the Null Object Patttern.
 # Facade Patter
 ## Update DemoClient class
 ### DemoClient Role
@@ -110,13 +110,13 @@ the Facade class.
 
 ## Creation of SourceFileReader interface
 ### SourceFileReader Role
-+ Is to specify how the methodsreadFileIntoList and readFileIntoString should be.
++ Is to specify how the methods readFileIntoList and readFileIntoString should be.
 ### Benefits
 + Multiple inheritance
-## Creation of readLocalFile and readWebFile classes
-### readLocalFile Role
+## Creation of ReadLocalFile and ReadWebFile classes
+### ReadLocalFile Role
 + Reads a local file either into list or into String.
-### readWebFile Role
+### ReadWebFile Role
 + Reads a web file either into list or into String.
 ### Benefits
 + There is less complecity than before because there are less if-else statements.
@@ -136,7 +136,16 @@ the Facade class.
 ### Benefits
 + There is less complecity than before because there are less if-else statements.
 + There is less complecity in writer classes and better cohesion because each class does a specific thing now.
-+ If we want to extend by adding more read types then it will be easier to implement the change and we will no need to change something in the facade class but only a small change to the SourceCodeAnalyzerFactory and add a new analyzer class. 
++ If we want to extend by adding more read types then it will be easier to implement the change and we will no need to change something in the facade class but only a small change to the SourceCodeAnalyzerFactory and add a new analyzer class.
+
+# Null Object Patttern
+## Creation of NullWriter, NullAnalyzer and ReadNullFile
+### Role
++ They throws nullPointerEcpeptions when theri methods are called. 
+### Benefits
++ The Facade and the factories fo not have the responsibility to handle null pointer exceptions.
++ It simplifies the code of the factories because they do not need to handle null cases.
+
 
 ## Contributing
 You are more than welcome to contribute in this project. Just have in mind that the repository aims at providing an overview of unit testing functionality and Continuous Integration plug-ins related to testing. 
