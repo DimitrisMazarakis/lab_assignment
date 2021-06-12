@@ -119,12 +119,12 @@ class StrcompAnalyzer implements SourceCodeAnalyzer {
 */
 class NullAnalyzer implements SourceCodeAnalyzer {
 	public int calculateLOC(String filepath, String analyzerType, SourceFileReader fileReader) throws IOException {
-		return 0;
+		throw new IllegalArgumentException("Unknown type" );
 	}
 	public int calculateNOM(String filepath, String analyzerType, SourceFileReader fileReader) throws IOException{
-		return 0;
+		throw new IllegalArgumentException("Unknown type" );
 	}
 	public int calculateNOC(String filepath, String analyzerType, SourceFileReader fileReader) throws IOException{
-		return 0;
+		throw new IllegalArgumentException("Unknown type" );
 	}
 }

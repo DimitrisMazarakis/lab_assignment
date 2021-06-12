@@ -30,7 +30,7 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoListLocal() throws IOException {
 		//read a locally stored file into a List
-		sfr = new readLocalFile();
+		sfr = new ReadLocalFile();
 		List<String> actualList = sfr.readFileIntoList(TEST_CLASS_LOCAL);
 		
 		String[] expecteds = expectedList.stream().toArray(String[]::new);
@@ -42,7 +42,7 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoStringLocal() throws IOException {
 		//read a locally stored file into a String
-		sfr = new readLocalFile();
+		sfr = new ReadLocalFile();
 		String actuals = sfr.readFileIntoString(TEST_CLASS_LOCAL);
 				
 		assertEquals(expectedString, actuals);
@@ -51,7 +51,7 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoListWeb() throws IOException {
 		//read a file stored in the web into a List
-		sfr = new readWebFile();
+		sfr = new ReadWebFile();
 		List<String> actualList = sfr.readFileIntoList(TEST_CLASS_WEB);
 		
 		String[] expecteds = expectedList.stream().toArray(String[]::new);
@@ -63,7 +63,7 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoStringWeb() throws IOException {
 		//read a file stored in the web into a String
-		sfr = new readWebFile();
+		sfr = new ReadWebFile();
 		String actuals = sfr.readFileIntoString(TEST_CLASS_WEB);
 				
 		assertEquals(expectedString, actuals);
@@ -75,7 +75,7 @@ public class SourceFileReaderTest {
 	public void testReadFileIntoListNull() throws IOException {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Unknown type");
-		sfr = new readNullFile();
+		sfr = new ReadNullFile();
 		List<String> actualList = sfr.readFileIntoList("something");
 	}
 	
@@ -83,7 +83,7 @@ public class SourceFileReaderTest {
 	public void testReadFileIntoStringNull() throws IOException {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Unknown type");
-		sfr = new readNullFile();
+		sfr = new ReadNullFile();
 		String actuals = sfr.readFileIntoString("something");
 	}
 }

@@ -9,7 +9,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import codeanalyzer.SourceCodeAnalyzer;
 
@@ -60,20 +62,28 @@ public class SourceCodeAnalyzerTest {
 		assertEquals(3, analyzer.calculateNOC(TEST_CLASS, TYPE_STRCOMP, reader));
 	}
 	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 	@Test
 	public void testCalculatenNullLOC() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type");
 		analyzer = new NullAnalyzer();
 		assertEquals(0, analyzer.calculateLOC(TEST_CLASS, "FDASF", reader));
 	}
 	
 	@Test
 	public void testCalculateNullNOM() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type");
 		analyzer = new NullAnalyzer();
 		assertEquals(0, analyzer.calculateNOM(TEST_CLASS, "asdas", reader));
 	}
 	
 	@Test
 	public void testCalculateNullNOC() throws IOException {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Unknown type");
 		analyzer = new NullAnalyzer();
 		assertEquals(0, analyzer.calculateNOC(TEST_CLASS, "asdas", reader));
 	}

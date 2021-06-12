@@ -33,13 +33,13 @@ public class SourceFileReaderFactoryTest {
 	
 	@Test
 	public void testcreateReaderLocal() throws IOException {
-		reader = new readLocalFile();
+		reader = new ReadLocalFile();
 		assertTrue(reader.getClass().equals(factory.createReader(TYPE_LOCAL).getClass()));
 	}
 	
 	@Test
 	public void testcreateReaderWeb() throws IOException {
-		reader = new readWebFile();
+		reader = new ReadWebFile();
 		assertTrue(reader.getClass().equals(factory.createReader(TYPE_WEB).getClass()));
 	}
 	
@@ -49,7 +49,7 @@ public class SourceFileReaderFactoryTest {
 	public void testcreateReaderNull() throws IOException {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Unknown type :???");
-		reader = new readNullFile();
+		reader = new ReadNullFile();
 		assertTrue(reader.getClass().equals(factory.createReader("???").getClass()));
 	}
 }
