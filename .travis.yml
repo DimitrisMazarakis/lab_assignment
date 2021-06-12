@@ -13,6 +13,11 @@ before_script:
 
 script: 
   - mvn clean package jacoco:report
+  - |
+    if [ "Design_pattern/target/output_metrics" diff "right_output_metrics.csv" ]; then
+        ./travis-stop-tests.sh;
+    else
+        success;
 
 after_success:
 - java -jar Design_pattern/target/Design_pattern-0.0.1-SNAPSHOT-jar-with-dependencies.jar Design_pattern/src/test/resources/TestClass.java regex local Design_pattern/target/output_metrics csv
