@@ -19,4 +19,5 @@ after_success:
 - command 1> Design_pattern/target/output_metrics.csv
 - bash <(curl -s https://codecov.io/bash) -t 1036eb64-2d96-44c6-b132-0dde4e7dfcca
 - different=$ ( diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv  | wc -l )
-
+- if [ $different -gt 0 ]; then
+-    echo "There are differences"
