@@ -16,10 +16,6 @@ In order to build the project execute the following Maven command:
 ```
 mvn clean install jacoco:report
 ```
-This command will also generate a report of the code coverage produced by JaCoCo. The report will be located in the following path for each module:
-```
-target/site/jacoco
-```
 
 
 ## Test project
@@ -27,7 +23,6 @@ To simply run the unit tests of the project, execute the following Maven command
 ```
 mvn test
 ```
-***Important:*** Note that only classes with a ```Test``` suffix located in the ```src/test``` will be executed and reported as Tests.
 
 ## Generate Test-coverage report
 To simply run the unit tests of the project, execute the following Maven command: 
@@ -149,7 +144,7 @@ the Facade class.
 # Bonus Part
 
 For the bonus part all I did is to change the travis.yml file and add the right_output_metrics.csv file to the repository. I also removed target file from the gitignore file because in order to run the program from travis I needed the jar file that were in the target folder. 
-As you can see I added the java -jar command to the travis.yml in order to create the output file and after that I used diff command to compare the expected and the created files. If the files are the same then it shows "Same files" else it shows "Different files" and trigger a built fail
+As you can see I added the java -jar command to the travis.yml in order to create the output file and after that I used diff command to compare the expected and the created files. If the files are the same then it shows "Same files" else it shows "Different files" and trigger a build fail.
 
 ![](/media/bonus_part.png)
 
