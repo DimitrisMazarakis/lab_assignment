@@ -22,3 +22,4 @@ after_success:
 - if [ $4 == "0" ]
 then
 echo "There are differences"
+fi
