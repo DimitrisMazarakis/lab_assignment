@@ -146,6 +146,12 @@ the Facade class.
 + The Facade and the factories fo not have the responsibility to handle null pointer exceptions.
 + It simplifies the code of the factories because they do not need to handle null cases.
 
+# Bonus Part
+
+For the bonus part all I did is to change the travis.yml file and add the right_output_metrics.csv file to the repository. I also removed target file from the gitignore file because in order to run the program from travis I needed the jar file that were in the target folder. 
+As you can see I added the java -jar command to the travis.yml in order to create the output file and after that I used diff command to compare the expected and the created files. If the files are the same then it shows "Same files" else it shows "Different files" and trigger a built fail
+
+![](/media/bonus_part.png)
 
 ## Contributing
 You are more than welcome to contribute in this project. Just have in mind that the repository aims at providing an overview of unit testing functionality and Continuous Integration plug-ins related to testing. 
