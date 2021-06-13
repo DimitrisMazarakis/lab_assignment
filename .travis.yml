@@ -20,6 +20,6 @@ after_success:
 - bash <(curl -s https://codecov.io/bash) -t 1036eb64-2d96-44c6-b132-0dde4e7dfcca
 - diff -q Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
 - |
-  if [[ $4 == "0" ]]; then
+  if [[ $4 == "342" ]]; then
   echo "There are differences"
   fi
