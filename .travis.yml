@@ -24,6 +24,8 @@ after_success:
   if diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
   then
     echo "Same files"
+    exit 1;
   else
     echo "Different files"
+    
   fi
