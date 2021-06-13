@@ -18,6 +18,6 @@ after_success:
 - java -jar Design_pattern/target/Design_pattern-0.0.1-SNAPSHOT-jar-with-dependencies.jar Design_pattern/src/test/resources/TestClass.java regex local Design_pattern/target/output_metrics csv
 - command 1> Design_pattern/target/output_metrics.csv
 - bash <(curl -s https://codecov.io/bash) -t 1036eb64-2d96-44c6-b132-0dde4e7dfcca
-- diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
-- if [ $? == "0" ]; then
--    echo "There are differences"
+- diff -q Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
+- if [[ $? == "0" ]] then
+- echo "There are differences"
