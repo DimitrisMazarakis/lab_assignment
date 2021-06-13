@@ -21,9 +21,9 @@ after_success:
 - cat Design_pattern/target/output_metrics.csv
 - cat Design_pattern/right_output_metrics.csv
 - |
-  different=$( diff -q /home/travis/build/DimitrisMazarakis/lab_assignment/Design_pattern/target/output_metrics.csv /home/travis/build/DimitrisMazarakis/lab_assignment/Design_pattern/right_output_metrics.csv )
-  if [[ $different == "0" ]]; then
-  echo "There are differences"
+  if diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
+  then
+    echo "Same files"
   else
-  echo "Same files"
+    echo "Different files"
   fi
