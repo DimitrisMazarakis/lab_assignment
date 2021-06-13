@@ -23,4 +23,6 @@ after_success:
   different=$( diff -q /home/travis/build/DimitrisMazarakis/lab_assignment/Design_pattern/target/output_metrics.csv /home/travis/build/DimitrisMazarakis/lab_assignment/Design_pattern/right_output_metrics.csv )
   if [[ $different == "0" ]]; then
   echo "There are differences"
+  else
+  echo "Same files"
   fi
