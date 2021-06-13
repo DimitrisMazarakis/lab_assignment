@@ -42,7 +42,7 @@ arg4 = “OutputFileType” [csv|json]
 ```
 
 ## Class Diagram
-Here you can see the class diagram of the progrma which has been made with the tool [Visual Paradigm](https://www.visual-paradigm.com/)
+Here you can see the class diagram of the progrma which has been made with the tool [Visual Paradigm](https://www.visual-paradigm.com/) .
 Every color represents a different Strategy Pattern. Each factory should have been connected with the classes of each interface they represent but I have added more arrows it will have been a mess.
 
 ![](/media/4th_lab_Assignment.png)
