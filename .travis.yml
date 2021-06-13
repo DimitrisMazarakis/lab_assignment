@@ -21,5 +21,3 @@ after_success:
 - different=$ ( diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv  | wc -l )
 if [ $different -gt 0 ]; then
     echo "There are differences"
-fi
-
