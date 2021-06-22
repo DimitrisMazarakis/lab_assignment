@@ -1,3 +1,4 @@
+  
 language: java
 
 jdk:
@@ -8,7 +9,6 @@ branches:
   - development
 
 before_script: 
-  - cd Unit_Testing
   - ls -la # this command just prints the contents of the current working directory.
 
 script: 
@@ -16,3 +16,12 @@ script:
 
 after_success:
 - bash <(curl -s https://codecov.io/bash) -t 1036eb64-2d96-44c6-b132-0dde4e7dfcca
+- java -jar Design_pattern/target/Design_pattern-0.0.1-SNAPSHOT-jar-with-dependencies.jar Design_pattern/src/test/resources/TestClass.java regex local Design_pattern/target/output_metrics csv
+- |
+  if diff Design_pattern/target/output_metrics.csv Design_pattern/right_output_metrics.csv
+  then
+    echo "Same files"
+  else
+    echo "Different files"
+    exit 1;
+  fi
